@@ -1,0 +1,32 @@
+spring:
+  aop:
+    auto: true
+    proxy-target-class: true
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/Dish?zeroDateTimeBehavior=CONVERT_TO_NULL&useUnicode=true&characterEncoding=UTF8&useSSL=false&serverTimezone=GMT&allowPublicKeyRetrieval=true
+    username: root
+    password: gjh640454
+    hikari:
+      auto-commit: true
+      minimum-idle: 2
+      maximum-pool-size: 10
+      connection-timeout: 10000
+      max-lifetime: 600000
+      idle-timeout: 60000
+      validation-timeout: 1000
+      leak-detection-threshold: 30000
+server:
+  port: 8081
+
+logging.level.com.gjh: DEBUG
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+sys:
+  version: v0.0.1.1
